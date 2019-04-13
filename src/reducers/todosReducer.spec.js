@@ -1,5 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { todos } from './todosReducer';
+import { TOGGLE_TODO } from '../actions/actionTypes';
 
 describe('todos reducer', () => {
   it('returns the initial state when current state is undefined', () => {
@@ -29,5 +30,33 @@ describe('todos reducer', () => {
 
       expect(todos(currentState, action)).toEqual(nextState);
     });
+  });
+
+  it('returns a state with a completed todo when todo is not completed and action type is TOGGLE_TODO', () => {
+    const currentState = deepFreeze([
+      { id: 'id-1', text: 'hey', completed: true },
+      { id: 'id-2', text: 'ho', completed: false },
+    ]);
+    const action = ({ type: TOGGLE_TODO, payload: { id: 'id-2' } });
+    const nextState = [
+      { id: 'id-1', text: 'hey', completed: true },
+      { id: 'id-2', text: 'ho', completed: true },
+    ];
+
+    expect(todos(currentState, action)).toEqual(nextState);
+  });
+
+  it('returns a state with a not completed todo when todo is completed and action type is TOGGLE_TODO', () => {
+    const currentState = deepFreeze([
+      { id: 'id-1', text: 'hey', completed: true },
+      { id: 'id-2', text: 'ho', completed: true },
+    ]);
+    const action = ({ type: TOGGLE_TODO, payload: { id: 'id-2' } });
+    const nextState = [
+      { id: 'id-1', text: 'hey', completed: true },
+      { id: 'id-2', text: 'ho', completed: false },
+    ];
+
+    expect(todos(currentState, action)).toEqual(nextState);
   });
 });
