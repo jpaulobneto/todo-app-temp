@@ -1,17 +1,17 @@
 import React from 'react';
 import { FilterLink } from './component/FilterLink/FilterLink';
 
-export const Footer = ({ currentFilter, onFilterClick }) => (
+export const Footer = () => (
   <div className="footer">
-    <FilterLink currentFilter={currentFilter} filter="SHOW_ALL" onClick={onFilterClick}>
+    <FilterLink filter="all">
       All
     </FilterLink>
     {' '}
-    <FilterLink currentFilter={currentFilter} filter="SHOW_ACTIVE" onClick={onFilterClick}>
+    <FilterLink filter="active">
       Active
     </FilterLink>
     {' '}
-    <FilterLink currentFilter={currentFilter} filter="SHOW_COMPLETED" onClick={onFilterClick}>
+    <FilterLink filter="completed">
       Completed
     </FilterLink>
     {' '}

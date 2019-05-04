@@ -1,17 +1,21 @@
 import React from 'react';
+import Types from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
-export const FilterLink = ({
-  currentFilter, filter, children, onClick,
-}) => (currentFilter === filter ? (
-  <span>{children}</span>
-) : (
-  <a
-    href="#"
-    onClick={(ev) => {
-      ev.preventDefault();
-      onClick(filter);
+export const FilterLink = ({ filter, children }) => (
+  <NavLink
+    exact
+    to={`/${filter === 'all' ? '' : filter}`}
+    activeStyle={{
+      color: 'black',
+      textDecoration: 'none',
     }}
   >
     {children}
-  </a>
-));
+  </NavLink>
+);
+
+FilterLink.propTypes = {
+  filter: Types.string.isRequired,
+  children: Types.node.isRequired,
+};
