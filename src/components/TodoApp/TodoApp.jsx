@@ -6,11 +6,7 @@ import { Footer } from '../../containers/Footer';
 export const TodoApp = () => (
   <div className="todo-app">
     <h1>TodoApp</h1>
-    <AddTodo
-      onAddTodo={(value) => {
-        console.log(value);
-      }}
-    />
+    <AddTodo />
     <TodoList />
     <Footer />
   </div>
