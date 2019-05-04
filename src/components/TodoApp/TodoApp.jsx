@@ -1,7 +1,7 @@
 import React from 'react';
 import { AddTodo } from '../../containers/AddTodo/AddTodo';
 import { VisibleTodoList } from '../../containers/VisibleTodoList/VisibleTodoList';
-import { Footer } from '../../containers/Footer';
+import { Footer } from './components/Footer/Footer';
 
 export const TodoApp = ({ match }) => (
   <div className="todo-app">
