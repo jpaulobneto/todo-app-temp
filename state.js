@@ -1,5 +1,4 @@
 export const state = {
-  visibilityFilter: 'SHOW_ALL',
   todos: [
     {
       id: 'id-1',
